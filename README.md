@@ -1,0 +1,2 @@
+# MaiMate
+UbiCom-IOT-SmarteBriefkastenProjekt
