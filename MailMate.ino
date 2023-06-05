@@ -31,18 +31,18 @@ void loop() {
   Serial.println(" cm"); // ...und " cm" am Ende, um anzugeben, dass die Entfernung in Zentimetern ist.
 
   // Wenn die gemessene Entfernung kleiner als 30 cm ist und der Servomotor noch nicht gedreht wurde, wird der Servomotor gedreht.
-  if (distance < 22 && !isServoTurned) {
+  if (distance < 15 && !isServoTurned) {
     servoMotor.write(180); // Der Servomotor wird um 180 Grad gedreht.
     isServoTurned = true; // Die Variable 'isServoTurned' wird auf true gesetzt, da der Servomotor nun gedreht ist.
     delay(1000); // Es wird eine Sekunde gewartet, um sicherzustellen, dass der Servomotor genügend Zeit zum Drehen hat.
   }
   
   // Wenn die gemessene Entfernung größer oder gleich 22 cm ist und der Servomotor bereits gedreht wurde, wird er zurück auf 0 Grad gedreht.
-  if (distance >= 22 && isServoTurned) {
+  if (distance >= 15 && isServoTurned) {
     servoMotor.write(0); // Der Servomotor wird auf 0 Grad zurückgedreht.
     isServoTurned = false; // Die Variable 'isServoTurned' wird auf false gesetzt, da der Servomotor nun nicht mehr gedreht ist.
     delay(1000); // Es wird eine Sekunde gewartet, um sicherzustellen, dass der Servomotor genügend Zeit zum Drehen hat.
   }
   
-  delay(1000); // Es wird eine Sekunde gewartet, bevor die Schleife erneut gestartet wird.
+  delay(500); // Es wird eine Sekunde gewartet, bevor die Schleife erneut gestartet wird.
 }
