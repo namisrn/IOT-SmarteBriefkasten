@@ -7,6 +7,7 @@ const uint16_t PORT = 80;
 
 #define TRIGGER_PIN 2 // Trigger-Pin des Ultraschallsensors
 #define ECHO_PIN 4 // Echo-Pin des Ultraschallsensors
+#define LED_PIN 7 // Definiert den Pin für die LED
 
 bool objectDetected = false; // Variable, die den Zustand des Detektors speichert
 
@@ -18,6 +19,9 @@ void setup() {
   pinMode(ECHO_PIN, INPUT); // Definiert ECHO_PIN als Eingang
 
   connectToWiFi(); // Verbindet mit WiFi
+
+  pinMode(LED_PIN, OUTPUT); // Setzt den LED-Pin als Ausgang
+
 }
 
 void loop() {
@@ -36,13 +40,21 @@ void loop() {
   
   // Wenn ein Objekt erkannt wird und zuvor kein Objekt erkannt wurde, sendet ein Signal an den Empfänger
   if (distanceCm < 15 && !objectDetected) {
+    
+    digitalWrite(LED_PIN, HIGH); // Schaltet die LED ein
+
     sendSignalToReceiver();
     objectDetected = true; // Aktualisiert den Zustand auf 'Objekt erkannt'
   } else if (distanceCm >= 15 && objectDetected) {
     // Wenn kein Objekt erkannt wird und zuvor ein Objekt erkannt wurde, sendet ein Signal an den Empfänger
+
+    digitalWrite(LED_PIN, LOW); // Schaltet die LED aus
+
     sendSignalToReceiver();
     objectDetected = false; // Aktualisiert den Zustand auf 'Kein Objekt erkannt'
   }
+
+  
 
   delay(1000); // Wartet eine Sekunde vor dem nächsten Zyklus
 }
