@@ -1,5 +1,6 @@
 #include <WiFiNINA.h>
 #include <Servo.h>
+#define LED_PIN 8 // Definiert den Pin für die LED
 
 const char* ssid = "PS";
 const char* password = "+PaSa_(8991)+";
@@ -12,12 +13,15 @@ bool servoState = false; // Variable, die den Zustand des Servos speichert
 void setup() {
   servoMotor.attach(9); // Befestigt den Servo an Pin 9
   Serial.begin(9600); // Startet die serielle Kommunikation
-  
+
+
   connectToWiFi(); // Verbindet mit WiFi
   server.begin(); // Startet den Server
   Serial.println("Server gestartet."); // Gibt eine Meldung aus, wenn der Server gestartet wurde
   Serial.print("IP-Adresse: "); 
   Serial.println(WiFi.localIP()); // Gibt die IP-Adresse des Servers aus
+  pinMode(LED_PIN, OUTPUT); // Setzt den LED-Pin als Ausgang
+
 }
 
 void loop() {
@@ -40,9 +44,11 @@ void loop() {
           } else if (currentLine.indexOf("POST") >= 0) { // Wenn es sich um eine POST-Anforderung handelt
             // Wechselt den Zustand des Servos
             if (!servoState) {
+              digitalWrite(LED_PIN, HIGH); // Schaltet die LED ein
               servoMotor.write(180); // Dreht den Servo auf 180 Grad
               servoState = true; // Aktualisiert den Zustand auf 'gedreht'
             } else {
+              digitalWrite(LED_PIN, LOW); // Schaltet die LED aus
               servoMotor.write(0); // Dreht den Servo auf 0 Grad
               servoState = false; // Aktualisiert den Zustand auf 'nicht gedreht'
             }
