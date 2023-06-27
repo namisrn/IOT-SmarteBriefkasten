@@ -1,5 +1,5 @@
 # MailMate 
-UbiCom-IOT-SmarteBriefkastenProjekt. (Update Stand: 17.06.2023)
+Ubiquitous Computing - Projektbericht. (Update Stand: 17.06.2023)
 01. Einführung:
 Das Ziel dieses Projekts war es, einen tieferen Einblick in die IoT-Technologien zu gewinnen und ein praktisches System zu entwickeln, das unser alltägliches Leben bereichern könnte. Angesichts der Herausforderungen, die sich aus der immerwährenden Prüfung unseres Briefkastens ergeben, schien die Entwicklung eines intelligenten Briefkasten-Benachrichtigungssystems eine geeignete und interessante Aufgabe zu sein.
 02. Überblick über das Projekt: 
