@@ -27,6 +27,12 @@ void setup() {
 void loop() {
   WiFiClient client = server.available(); // Prüft, ob ein Client eine Verbindung hergestellt hat
 
+  if(WiFi.status() != WL_CONNECTED) {
+    Serial.println("Verbindung zum WLAN-Netzwerk verloren. Versuche erneut zu verbinden...");
+    connectToWiFi();
+    blinkLED(4); // Blinkt die LED viermal
+  }
+
   if (client) { // Wenn ein Client verbunden ist
     String currentLine = ""; // Speichert die aktuelle Zeile der Anforderung
     while (client.connected()) { // Solange der Client verbunden ist
@@ -66,6 +72,7 @@ void loop() {
   }
 }
 
+
 void connectToWiFi() {
   int status = WL_IDLE_STATUS; // Beginnt mit dem Status 'Untätig'
   while (status != WL_CONNECTED) {
@@ -76,4 +83,16 @@ void connectToWiFi() {
   }
 
   Serial.println("Mit WLAN-Netzwerk verbunden."); // Gibt eine Meldung aus, wenn die Verbindung hergestellt wurde
+  blinkLED(2); // Blinkt die LED zweimal schnell
+
 }
+
+void blinkLED(int times) {
+  for(int i = 0; i < times; i++) {
+    digitalWrite(LED_PIN, HIGH);
+    delay(250); // LED bleibt für 250 ms an
+    digitalWrite(LED_PIN, LOW);
+    delay(250); // LED bleibt für 250 ms aus
+  }
+}
+
