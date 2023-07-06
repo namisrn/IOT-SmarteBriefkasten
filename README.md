@@ -1,6 +1,6 @@
 # MailMate 
 Ubiquitous Computing - Projektbericht. (Update Stand: 17.06.2023)
-Einführung
+01. Einführung
 Das Ziel dieses Projekts war es, einen tieferen Einblick in die IoT-Technologien zu gewinnen und ein praktisches System zu entwickeln, das unser alltägliches Leben bereichern könnte. Angesichts der Herausforderungen, die sich aus der immerwährenden Prüfung unseres Briefkastens ergeben, schien die Entwicklung eines intelligenten Briefkasten-Benachrichtigungssystems eine geeignete und interessante Aufgabe zu sein.
 02. Überblick über das Projekt: 
 Das entwickelte Projekt zielt darauf ab, den Benutzer zu entlasten, indem es automatisch eine Benachrichtigung auslöst, sobald ein Postbote einen Brief in den Briefkasten einwirft. Das System besteht aus zwei Hauptkomponenten: einem Sensor-Modul, das auf dem Arduino Nano RP2040 und einem HC-SR04 Ultraschallsensor basiert, und einem Aktor-Modul, das ebenfalls auf dem Arduino Nano RP2040 und einem Servomotor basiert. Beide Module kommunizieren drahtlos über die integrierten WiFi-Module der Arduinos, und ihre Status werden über rote LEDs angezeigt.
