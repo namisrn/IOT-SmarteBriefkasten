@@ -63,14 +63,14 @@ Die Implementierung des Systems erfolgte in mehreren Phasen.
   - Die zweite Phase des Projekts bestand darin, einen Servomotor hinzuzufügen. Der Motor wurde so programmiert, dass er sich dreht, wenn ein Objekt erkannt wurde, was als Signal für den Benutzer diente, dass ein neues Objekt in den Briefkasten eingeworfen wurde. 
 
     - [MailMate (Alte Version).ino](https://github.com/namisrn/MailMate/blob/main/MailMate%20(Alte%20Version).ino)
-    - [Video zum Phase 02](https://youtu.be/ltNh2mRTkpc)
+    - [Video zu der Phase 02](https://youtu.be/ltNh2mRTkpc)
 
 
   - In der dritten Phase des Projekts wurden die Funktionen auf zwei separate Arduino-Platinen aufgeteilt. Eine fungiert als Sender (mit dem Ultraschallsensor), die andere als Empfänger (mit dem Servomotor). Dies erforderte einige Anpassungen im Code, um eine reibungslose Kommunikation zwischen den beiden Geräten durch intergrierten Wifi und WifiNINABibliothek zu gewährleisten. Die Herausforderung bestand darin, eine effektive Kommunikation zwischen den beiden Arduinos zu ermöglichen. Nach einigen Recherchen stellte sich heraus, dass die Eingabe der IP-Adresse des Empfängers in den Sendercode eine effektive Methode zur Herstellung einer stabilen Verbindung darstellte. Für die Verbindung der beiden Geräte war auch das Einrichten eines WLAN-Netzwerks notwendig, wobei die SSID und das Passwort manuell eingegeben wurden. Außerdem wurden rote LEDs zu beiden Arduinos hinzugefügt, die als zusätzliche visuelle Indikatoren dienen: Wenn der Sender ein Objekt erkennt, leuchtet seine LED auf. Empfängt der Empfänger das Signal, leuchtet dessen LED ebenfalls auf und der Servomotor dreht sich.
 
     - [MailMate-Sender(mit Wifi).ino](https://github.com/namisrn/MailMate/blob/main/MailMate-Sender(mit%20Wifi).ino)
     - [MailMate-Empfaenger(mit Wifi).ino](https://github.com/namisrn/MailMate/blob/main/MailMate-Empfaenger(mit%20Wifi).ino)
-    - [Video zum Phase 03](https://youtu.be/s27I9-iAZ6E)
+    - [Video zu der Phase 03](https://youtu.be/s27I9-iAZ6E)
 
   - In der vierten Phase des Projekts wurden die eingebauten WLAN-Komponenten durch zwei LoRaWAN-Module ersetzt, um eine Kommunikation zwischen beiden Platinen auch über größere Entfernungen (z.B. von der Haustür bis zum 2. Obergeschoss) zu ermöglichen.
     LoRaWAN (Long Range Wide Area Network) ist eine Netzwerkarchitektur, die speziell für das Internet der Dinge (IoT) entwickelt wurde. Es verwendet das LoRa (Long Range) Funkmodul, um eine Verbindung zwischen den Sensoren (Sender) und den Aktoren (Empfänger) herzustellen.
@@ -84,7 +84,9 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
 
     Trotz mehrfacher Iterationen und Versuche, das Problem von Grund auf neu zu lösen, konnte ich leider keine passende Lösung finden. Schließlich wählte ich versehentlich einen falschen PIN aus, was dazu führte, dass die Platine und der Motortreiber stark überhitzten, als ich die externe 12V-Stromquelle anschloss. Rauch begann aufzusteigen und die Leitungen nahmen leichten Schmelzschaden.
 
-    - [Video zum Phase 04](https://youtu.be/A9KNEbSvioM)
+    - [MailMate-Sender(mit LoRaWAN).ino](https://github.com/namisrn/MailMate/blob/main/MailMate-Sender(mit%20LoRaWAN).ino)
+    - [MailMate-Empfaenger(mit LoRaWAN)).ino](https://github.com/namisrn/MailMate/blob/main/MailMate-Empfaenger(mit%20LoRaWAN).ino)
+    - [Video zu der Phase 04](https://youtu.be/A9KNEbSvioM)
 
   - In der fünften Phase musste ich aufgrund der vorherigen Probleme das Projekt erheblich reduzieren. Um einen grundlegenden Prototyp darzustellen, der die zentrale Idee des Projekts veranschaulicht, verwendete ich ein Breadboard, um eine Arduino-Platine, einen Motortreiber, eine LED, einen Ultraschallsensor (USS) und einen Schrittmotor zu verbinden.
 
@@ -92,7 +94,7 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
 
     Die Arduino-Platine diente dabei als zentrale Einheit, die sowohl die Signale vom Ultraschallsensor verarbeitet als auch den Schrittmotor über den Motortreiber ansteuert. Der Ultraschallsensor erkennt ein Objekt in seiner Reichweite und sendet ein Signal an die Arduino-Platine. Diese verarbeitet das Signal und sendet entsprechende Anweisungen an den Schrittmotor. Der Motortreiber wandelt diese Anweisungen in mechanische Bewegungen des Schrittmotors um, wodurch die physische Interaktion mit der Umwelt ermöglicht wird. Die LED dient dabei als visuelles Feedback für den Benutzer, um zu signalisieren, dass das System ordnungsgemäß funktioniert.
 
-    - [Video zum Phase 05](https://youtu.be/JOyV6MIt7ds)
+    - [Video zu der Phase 05](https://youtu.be/JOyV6MIt7ds)
   
   - In der sechsten und finalen Phase des Projekts habe ich den Schritt der Realisierung unternommen und eine Modell-Briefkasten aus Pappe erstellt. Ziel war es, eine praktische Umsetzung des vorherigen Designs zu erarbeiten, indem die Komponenten - insbesondere der Ultraschallsensor - in den Briefkasten integriert wurden.
 
@@ -105,6 +107,8 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
     Schließlich installierte ich die Arduino-Platine und die Stromversorgung, eine kompakte Powerbank, auf der Rückseite des Briefkastens. Bei dem Schrittmotor fügte ich zwei Zeichen hinzu. Diese dienen dazu, den Benutzer visuell darüber zu informieren, ob der Briefkasten gerade voll oder leer ist. Die Position des Schrittmotors weist auf den aktuellen Füllstand des Briefkastens hin, was dem Benutzer einen schnellen und intuitiven Einblick in den Zustand des Briefkastens ermöglicht.
 
     Somit war die endgültige Implementierung des Projekts abgeschlossen - ein intelligenter Briefkasten, der Benutzer über seinen Füllstand informiert. Dieser Briefkasten stellt einen ersten Prototyp dar und bietet zahlreiche Möglichkeiten für zukünftige Verbesserungen und Erweiterungen.
+    - [MailMate-Final-OhneLoRa-MitStepper.ino](https://github.com/namisrn/MailMate/blob/main/MailMate-Final-OhneLoRa-MitStepper.ino)
+    - [Video zu der Phase 06](https://youtu.be/44W68I5Qc0Q)
 
 ## Schaltpläne und Verdrahtung:
 Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
