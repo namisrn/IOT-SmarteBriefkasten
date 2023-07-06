@@ -1,19 +1,41 @@
 # MailMate 
-### Ubiquitous Computing - Projektbericht. (Update Stand: 17.06.2023)
+Ubiquitous Computing - Projektbericht. (Update Stand: 17.06.2023)
 
 ## Einführung
-Das Ziel dieses Projekts war es, einen tieferen Einblick in die IoT-Technologien zu gewinnen und ein praktisches System zu entwickeln, das unser alltägliches Leben bereichern könnte. Angesichts der Herausforderungen, die sich aus der immerwährenden Prüfung unseres Briefkastens ergeben, schien die Entwicklung eines intelligenten Briefkasten-Benachrichtigungssystems eine geeignete und interessante Aufgabe zu sein.
-
-## Überblick über das Projekt: 
-Das entwickelte Projekt zielt darauf ab, den Benutzer zu entlasten, indem es automatisch eine Benachrichtigung auslöst, sobald ein Postbote einen Brief in den Briefkasten einwirft. Das System besteht aus zwei Hauptkomponenten: einem Sensor-Modul, das auf dem Arduino Nano RP2040 und einem HC-SR04 Ultraschallsensor basiert, und einem Aktor-Modul, das ebenfalls auf dem Arduino Nano RP2040 und einem Servomotor basiert. Beide Module kommunizieren drahtlos über die integrierten WiFi-Module der Arduinos, und ihre Status werden über rote LEDs angezeigt.
+Das Ziel dieses Projekts ist die Entwicklung eines intelligenten Briefkasten-Benachrichtigungssystems. Dieses System soll in der Lage sein, die Präsenz eines neuen Briefs oder Pakets in einem Briefkasten automatisch zu erkennen und den Benutzer entsprechend zu benachrichtigen. Angesichts der Herausforderungen, die sich aus der immerwährenden Prüfung unseres Briefkastens ergeben, schien die Entwicklung eines intelligenten Briefkasten-Benachrichtigungssystems eine geeignete und interessante Aufgabe zu sein.
 
 ## Problemstellung: 
 Obwohl viele von uns in Mehrfamilienhäusern leben oder unser Briefkasten weit von unserem Wohnraum entfernt ist, bleibt das Überprüfen des Briefkastens auf Post eine lästige Aufgabe. Es wäre effizienter, eine Benachrichtigung zu erhalten, sobald die Post eingeworfen wird, damit wir nicht unnötig zum Briefkasten gehen müssen.
 
 ## Lösungsansatz: 
-Um dieses Problem zu lösen, wurde ein System entwickelt, das aus einem Sensor- und einem Aktor-Modul besteht. Der Ultraschallsensor erkennt, wenn ein Objekt (z.B. ein Brief) in den Briefkasten geworfen wird, und sendet ein Signal an das Aktor-Modul. Das Aktor-Modul gibt dann eine visuelle und physische Reaktion: es leuchtet eine LED auf und der Servomotor dreht sich. Diese Aktionen signalisieren dem Benutzer, dass Post eingeworfen wurde.
+Um dieses Problem zu lösen, wurde ein System entwickelt, das aus einem Sensor- und einem Aktor-Modul besteht. Der Ultraschallsensor erkennt, wenn ein Objekt (z.B. ein Brief) in den Briefkasten geworfen wird, und sendet ein Signal an das Aktor-Modul. Das Aktor-Modul gibt dann eine visuelle und physische Reaktion: es leuchtet eine LED auf und der Servomotor/Stepper-Motor dreht sich. Diese Aktionen signalisieren dem Benutzer, dass Post eingeworfen wurde.
 
-## Technische Details und Implementierung: 
+## Systemübersicht: 
+Das System bzw. die Gründsätzliche Idee besteht aus zwei Hauptkomponenten:
+
+* Einem Sensor-Modul (Sender): Dieses Modul ist dafür verantwortlich, das Vorhandensein eines neuen Briefs oder Pakets in den Briefkasten zu erkennen. Und basiert auf folgenden Module:
+  - einem Arduino Nano RP2040 Connect,
+  - einer roten LED,
+  - ein LoRaWAN-Modul (LoRaWAN SX1278 LoRa 433MHz),
+  - einem HC-SR04 Ultraschallsensor.
+ 
+* Einem Aktor-Modul (Empfänger): Dieses Modul ist dafür verantwortlich, den Benutzer Im Wohsitz zu benachrichtigen, wenn ein neuer Brief oder ein Paket erkannt wurde. Und basiert auf folgenden Module:
+  - einem Arduino Nano RP2040 Connect,
+  - einer roten LED,
+  - ein LoRaWAN-Modul (LoRaWAN SX1278 LoRa 433MHz),
+  - ein Motor-Treiber H-Bridge L293DNE,
+  - einem Stepper-Mottor. 
+
+Die Kommunikation zwischen den beiden Modulen erfolgt über die integrierten WiFi der Arduino-Platinen **oder** LoRaWAN-Module. Der Zustand jedes Moduls wird über die rote LED angezeigt, und die Bewegung des Schrittmotors signalisiert das Vorhandensein eines neuen Briefs oder Pakets.
+
+## Systemdesign und Implementierung: 
+Die Implementierung des Systems erfolgte in mehreren Phasen. 
+
+  - In der ersten Phase wurde nur ein Modul, das auf Arduino-Platine , ein LED und USS basiert, entwickelt und getestet und der sollte in der Serial Monitor der Arduino IDE ausgeben, das ein objekt erkannt wurde, sobald das Objekt unter 15 cm liegt. Ebenfalls wird bei diesem Aktoin das LED an bzw. ausgeschaltet. Der Schwerpunkt  lag auf der Erkennung eines Objekts durch den Ultraschallsensor. Hierfür wurde zunächst ein Testsystem aufgebaut, um verschiedene Entfernungen auszuprobieren. Es wurde festgestellt, dass ein Abstand von 15 cm am effektivsten war, um das Einlegen von Objekten in den Briefkasten zuverlässig zu erkennen.
+
+  - In den zweite Phase wurde das System erweitert, in dem man , einem weiteren Arduino-Platine verwendet. Es wurde ein SensoModul (Sender) basiert auf Arduino-Platine, USS und LED und Aktor-Modul (Empfänger) basiert auf Arduino-Platine, ServoMotor und LED entwicklet, die mit intergriertem WiFi-Modul und WiFiNINA-Bibliothek miteinander kommuinizieren.
+
+
 Der technische Kern des Systems besteht aus diese Hauptkomponenten: zwei Arduino Nano RP 2040 Boards, die jeweils mit einem HC-SR04 Ultraschallsensor und einem Servomotor ausgestattet sind. Für die Kommunikation zwischen den beiden Arduinos ist die integrierte WiFiNINA-Bibliothek verwendet worden, die eine einfache und effektive Möglichkeit bietet, WiFi-Kommunikation zu implementieren.
 
 - In der ersten Phase des Projekts lag der Schwerpunkt auf der Erkennung eines Objekts durch den Ultraschallsensor. Hierfür wurde zunächst ein Testsystem aufgebaut, um verschiedene Entfernungen auszuprobieren. Es wurde festgestellt, dass ein Abstand von 15 cm am effektivsten war, um das Einlegen von Objekten in den Briefkasten zuverlässig zu erkennen.
