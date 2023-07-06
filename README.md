@@ -69,6 +69,18 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
     Die Arduino-Platine diente dabei als zentrale Einheit, die sowohl die Signale vom Ultraschallsensor verarbeitet als auch den Schrittmotor über den Motortreiber ansteuert. Der Ultraschallsensor erkennt ein Objekt in seiner Reichweite und sendet ein Signal an die Arduino-Platine. Diese verarbeitet das Signal und sendet entsprechende Anweisungen an den Schrittmotor. Der Motortreiber wandelt diese Anweisungen in mechanische Bewegungen des Schrittmotors um, wodurch die physische Interaktion mit der Umwelt ermöglicht wird. Die LED dient dabei als visuelles Feedback für den Benutzer, um zu signalisieren, dass das System ordnungsgemäß funktioniert.
 
     - [Video zum Phase 05](https://youtu.be/JOyV6MIt7ds)
+  
+  - In der sechsten und finalen Phase des Projekts habe ich den Schritt der Realisierung unternommen und eine Modell-Briefkasten aus Pappe erstellt. Ziel war es, eine praktische Umsetzung des vorherigen Designs zu erarbeiten, indem die Komponenten - insbesondere der Ultraschallsensor - in den Briefkasten integriert wurden.
+
+    Als ich jedoch anfing, den Ultraschallsensor seitlich in den Briefkasten einzubauen, stellte ich fest, dass die Wahrscheinlichkeit, dass der Sensor einen eingeworfenen Brief nicht erkennt, zu hoch war. Diese Erkenntnis führte mich dazu, die Position des Sensors zu überdenken.
+
+    Schließlich entschied ich mich, den Ultraschallsensor auf der Rückseite des Briefkastens zu montieren. Dies würde eine bessere Erfassung der eingeworfenen Post ermöglichen, indem der Sensor die Entfernung zwischen sich und der vorderen Wand des Briefkastens misst.
+
+    Diese Änderung erforderte eine Anpassung des Codes, insbesondere eine Verringerung der Erkennungsdistanz des Sensors. Nach mehreren Tests entschied ich mich für eine Distanz von 11 cm, da dieser Wert eine optimale Erkennung der Briefe ermöglichte.
+
+    Schließlich installierte ich die Arduino-Platine und die Stromversorgung, eine kompakte Powerbank, auf der Rückseite des Briefkastens. Bei dem Schrittmotor fügte ich zwei Zeichen hinzu. Diese dienen dazu, den Benutzer visuell darüber zu informieren, ob der Briefkasten gerade voll oder leer ist. Die Position des Schrittmotors weist auf den aktuellen Füllstand des Briefkastens hin, was dem Benutzer einen schnellen und intuitiven Einblick in den Zustand des Briefkastens ermöglicht.
+
+    Somit war die endgültige Implementierung des Projekts abgeschlossen - ein intelligenter Briefkasten, der Benutzer über seinen Füllstand informiert. Dieser Briefkasten stellt einen ersten Prototyp dar und bietet zahlreiche Möglichkeiten für zukünftige Verbesserungen und Erweiterungen.
 
 ## Schaltpläne und Verdrahtung:
 Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
