@@ -53,8 +53,14 @@ Die Implementierung des Systems erfolgte in mehreren Phasen.
     - [Video zum Phase 04](https://youtu.be/A9KNEbSvioM)
 
   - In der fünfte Phase wegen das was vorhin passiert ist,musste ich das Projekt deutlich zu reduzieren.
+    
+    - [Video zum Phase 05](https://youtu.be/JOyV6MIt7ds)
 
+## Schaltpläne
+Hier ist die Schaltpläne zu der Phase 04:
 
+  - ![Phase04_Sender Schaltplan](/assets/Phase04_Sender.png)
+  - ![Phase04_Empfänger Schaltplan](/assets/Phase04_Empfaenger.png)
 
 ## Ergebnisse und Diskussion: 
 Obwohl das System grundsätzlich funktioniert, gab es einige Herausforderungen und Verbesserungsmöglichkeiten. Eines der Hauptprobleme war die Stabilität der WiFi-Verbindung, die besonders bei größeren Entfernungen ein Problem darstellte. Eine Möglichkeit, dieses Problem zu lösen, könnte die Verwendung von LoRaWAN-Modulen anstelle der WiFi-Kommunikation sein.
