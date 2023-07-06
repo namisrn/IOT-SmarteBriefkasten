@@ -56,8 +56,24 @@ Die Implementierung des Systems erfolgte in mehreren Phasen.
     
     - [Video zum Phase 05](https://youtu.be/JOyV6MIt7ds)
 
-## Schaltpläne
-Hier sind die Schaltpläne zu der Phase 04:
+## Schaltpläne und Verdrahtung:
+Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
+
+  ### Verdrahtungsanweisungen:
+    - Arduino Nano RP2040 Connect (Sender):
+      01. VCC des HC-SR04 Ultraschallsensors verbinden Sie mit dem 5V-Pin des Arduino.
+      02. GND (Masse) des HC-SR04 Ultraschallsensors verbinden Sie mit einem der GND-Pins des Arduino.
+      03. Trig des HC-SR04 Ultraschallsensors verbinden Sie mit dem digitalen Pin D7 des Arduino.
+      04. Echo des HC-SR04 Ultraschallsensors verbinden Sie mit dem digitalen Pin D8 des Arduino.
+      05. Anode (langer Pin) der LED verbinden Sie mit dem digitalen Pin D4 des Arduino über einen Widerstand von 220 Ohm. Den Kathodenpin (kürzerer Pin) der LED verbinden Sie mit einem der GND-Pins des Arduino.
+    - Arduino Nano RP2040 Connect (Empfänger):
+      01. VCC des L293DNE-Treibers verbinden Sie mit dem 5V-Pin des Arduino. Stellen Sie sicher, dass das Enable 1-Pin (Pin 1 auf dem L293DNE) mit 5V verbunden ist.
+      02. GND (Masse) des L293DNE-Treibers verbinden Sie mit einem der GND-Pins des Arduino.
+      03. Input 1 und Input 2 des L293DNE-Treibers (Pin 2 und Pin 7 auf dem L293DNE) verbinden Sie mit den digitalen Pins D5 und D6 des Arduino.
+      04. Output 1 und Output 2 des L293DNE-Treibers (Pin 3 und Pin 6 auf dem L293DNE) verbinden Sie mit den Pins des Schrittmotors.
+      05. Versorgungsspannung (VCC2) für den Motor (Pin 8 auf dem L293DNE) verbinden Sie mit einer geeigneten Spannungsquelle für Ihren spezifischen Schrittmotor, in der Regel 12V oder 24V.
+      06. Anode (langer Pin) der LED verbinden Sie mit dem digitalen Pin D4 des Arduino über einen Widerstand von 220 Ohm. Den Kathodenpin (kürzerer Pin) der LED verbinden Sie mit einem der GND-Pins des Arduino.
+
 
   - ![Phase04_Sender Schaltplan](/assets/Phase04_Sender.PNG)
   - ![Phase04_Empfänger Schaltplan](/assets/Phase04_Empfaenger.PNG)
@@ -65,6 +81,16 @@ Hier sind die Schaltpläne zu der Phase 04:
 Hier sind die Schaltpläne zu der Phase 05:
 
   -![]()
+
+
+## Quelle:
+
+  - [instructables](https://www.instructables.com/)
+  - [electroschematics](https://www.electroschematics.com/hc-sr04-datasheet/)
+  - [arduino Nano RP2040 Docs](https://docs.arduino.cc/hardware/nano-rp2040-connect)
+  - [lora-alliance](https://lora-alliance.org/)
+  - [chatGPT](https://chat.openai.com/)
+
 
 ## Ergebnisse und Diskussion: 
 Obwohl das System grundsätzlich funktioniert, gab es einige Herausforderungen und Verbesserungsmöglichkeiten. Eines der Hauptprobleme war die Stabilität der WiFi-Verbindung, die besonders bei größeren Entfernungen ein Problem darstellte. Eine Möglichkeit, dieses Problem zu lösen, könnte die Verwendung von LoRaWAN-Modulen anstelle der WiFi-Kommunikation sein.
