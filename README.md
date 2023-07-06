@@ -28,7 +28,7 @@ Der technische Kern des Systems besteht aus diese Hauptkomponenten: zwei Arduino
 
 - Durch diese iterativen Phasen der technischen Entwicklung und Optimierung konnte ich ein System schaffen, das nicht nur funktional, sondern auch intuitiv zu bedienen ist. Durch die Kombination von Sensortechnik, Mechanik und drahtloser Kommunikation konnte ich ein Produkt schaffen, das den Benutzer effektiv darüber informiert, wenn Post in den Briefkasten eingeworfen wird.
 
-04. Ergebnisse und Diskussion: 
+## Ergebnisse und Diskussion: 
 Obwohl das System grundsätzlich funktioniert, gab es einige Herausforderungen und Verbesserungsmöglichkeiten. Eines der Hauptprobleme war die Stabilität der WiFi-Verbindung, die besonders bei größeren Entfernungen ein Problem darstellte. Eine Möglichkeit, dieses Problem zu lösen, könnte die Verwendung von LoRaWAN-Modulen anstelle der WiFi-Kommunikation sein.
 
 - Darüber hinaus könnte ein “Stepper Motor” anstelle des Servomotors für mehr Flexibilität in der Bewegung und genauerer Kontrolle eingesetzt werden.
