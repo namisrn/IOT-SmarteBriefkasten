@@ -33,7 +33,14 @@ Die Implementierung des Systems erfolgte in mehreren Phasen.
 
   - In der ersten Phase wurde nur ein Modul, das auf Arduino-Platine , ein LED und USS basiert, entwickelt und getestet und der sollte in der Serial Monitor der Arduino IDE ausgeben, das ein objekt erkannt wurde, sobald das Objekt unter 15 cm liegt. Ebenfalls wird bei diesem Aktoin das LED an bzw. ausgeschaltet. Der Schwerpunkt  lag auf der Erkennung eines Objekts durch den Ultraschallsensor. Hierfür wurde zunächst ein Testsystem aufgebaut, um verschiedene Entfernungen auszuprobieren. Es wurde festgestellt, dass ein Abstand von 15 cm am effektivsten war, um das Einlegen von Objekten in den Briefkasten zuverlässig zu erkennen.
 
-  - In den zweite Phase wurde das System erweitert, in dem man , einem weiteren Arduino-Platine verwendet. Es wurde ein SensoModul (Sender) basiert auf Arduino-Platine, USS und LED und Aktor-Modul (Empfänger) basiert auf Arduino-Platine, ServoMotor und LED entwicklet, die mit intergriertem WiFi-Modul und WiFiNINA-Bibliothek miteinander kommuinizieren.
+![Screenshot von Arduino IDE Serial Monitor](/assets/Phase01.png)
+
+
+  - Die zweite Phase des Projekts bestand darin, einen Servomotor hinzuzufügen. Der Motor wurde so programmiert, dass er sich dreht, wenn ein Objekt erkannt wurde, was als Signal für den Benutzer diente, dass ein neues Objekt in den Briefkasten eingeworfen wurde. [MailMate (Alte Version).ino](https://github.com/namisrn/MailMate/blob/main/MailMate%20(Alte%20Version).ino)
+
+  - In der dritten Phase des Projekts wurden die Funktionen auf zwei separate Arduinos aufgeteilt, wobei einer als Sender (mit dem Ultraschallsensor) und der andere als Empfänger (mit dem Servomotor) fungierte. Dieser Schritt erforderte einige Anpassungen im Code, um sicherzustellen, dass die Kommunikation zwischen den beiden Geräten reibungslos funktionierte.
+    - [MailMate-Sender(mit Wifi).ino](https://github.com/namisrn/MailMate/blob/main/MailMate-Sender(mit%20Wifi).ino)
+    - [MailMate-Empfaenger(mit Wifi).ino](https://github.com/namisrn/MailMate/blob/main/MailMate-Empfaenger(mit%20Wifi).ino)
 
 
 Der technische Kern des Systems besteht aus diese Hauptkomponenten: zwei Arduino Nano RP 2040 Boards, die jeweils mit einem HC-SR04 Ultraschallsensor und einem Servomotor ausgestattet sind. Für die Kommunikation zwischen den beiden Arduinos ist die integrierte WiFiNINA-Bibliothek verwendet worden, die eine einfache und effektive Möglichkeit bietet, WiFi-Kommunikation zu implementieren.
