@@ -1,16 +1,17 @@
 # MailMate 
 Ubiquitous Computing - Projektbericht. (Update Stand: 17.06.2023)
-01. Einführung
+## Einführung
 Das Ziel dieses Projekts war es, einen tieferen Einblick in die IoT-Technologien zu gewinnen und ein praktisches System zu entwickeln, das unser alltägliches Leben bereichern könnte. Angesichts der Herausforderungen, die sich aus der immerwährenden Prüfung unseres Briefkastens ergeben, schien die Entwicklung eines intelligenten Briefkasten-Benachrichtigungssystems eine geeignete und interessante Aufgabe zu sein.
 02. Überblick über das Projekt: 
 Das entwickelte Projekt zielt darauf ab, den Benutzer zu entlasten, indem es automatisch eine Benachrichtigung auslöst, sobald ein Postbote einen Brief in den Briefkasten einwirft. Das System besteht aus zwei Hauptkomponenten: einem Sensor-Modul, das auf dem Arduino Nano RP2040 und einem HC-SR04 Ultraschallsensor basiert, und einem Aktor-Modul, das ebenfalls auf dem Arduino Nano RP2040 und einem Servomotor basiert. Beide Module kommunizieren drahtlos über die integrierten WiFi-Module der Arduinos, und ihre Status werden über rote LEDs angezeigt.
 
-03. Problemstellung: 
+## Problemstellung: 
 Obwohl viele von uns in Mehrfamilienhäusern leben oder unser Briefkasten weit von unserem Wohnraum entfernt ist, bleibt das Überprüfen des Briefkastens auf Post eine lästige Aufgabe. Es wäre effizienter, eine Benachrichtigung zu erhalten, sobald die Post eingeworfen wird, damit wir nicht unnötig zum Briefkasten gehen müssen.
-04. Lösungsansatz: 
+
+## Lösungsansatz: 
 Um dieses Problem zu lösen, wurde ein System entwickelt, das aus einem Sensor- und einem Aktor-Modul besteht. Der Ultraschallsensor erkennt, wenn ein Objekt (z.B. ein Brief) in den Briefkasten geworfen wird, und sendet ein Signal an das Aktor-Modul. Das Aktor-Modul gibt dann eine visuelle und physische Reaktion: es leuchtet eine LED auf und der Servomotor dreht sich. Diese Aktionen signalisieren dem Benutzer, dass Post eingeworfen wurde.
 
-05. Technische Details und Implementierung: 
+## Technische Details und Implementierung: 
 Der technische Kern des Systems besteht aus diese Hauptkomponenten: zwei Arduino Nano RP 2040 Boards, die jeweils mit einem HC-SR04 Ultraschallsensor und einem Servomotor ausgestattet sind. Für die Kommunikation zwischen den beiden Arduinos ist die integrierte WiFiNINA-Bibliothek verwendet worden, die eine einfache und effektive Möglichkeit bietet, WiFi-Kommunikation zu implementieren.
 
 - In der ersten Phase des Projekts lag der Schwerpunkt auf der Erkennung eines Objekts durch den Ultraschallsensor. Hierfür wurde zunächst ein Testsystem aufgebaut, um verschiedene Entfernungen auszuprobieren. Es wurde festgestellt, dass ein Abstand von 15 cm am effektivsten war, um das Einlegen von Objekten in den Briefkasten zuverlässig zu erkennen.
