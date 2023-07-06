@@ -111,7 +111,7 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
     - [Video zu der Phase 06](https://youtu.be/44W68I5Qc0Q)
 
 ## Schaltpläne und Verdrahtung:
-Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
+###Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
 
   ### Verdrahtungsanweisungen:
    - Arduino Nano RP2040 Connect (Sender):
@@ -132,10 +132,27 @@ Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
   - ![Phase04_Sender Schaltplan](/assets/Phase04_Sender.PNG)
   - ![Phase04_Empfänger Schaltplan](/assets/Phase04_Empfaenger.PNG)
 
-Hier sind die Schaltpläne zu der Phase 05:
+###Hier sind die Finale Schaltpläne und Verdrahtung (Phase 05 und 06):
 
-  -![]()
+### Verdrahtungsanweisungen:
+  - **Ultraschallsensor HC-SR04**: verbinde die Pins Ihres HC-SR04 Ultraschallsensors mit Ihrem Arduino wie folgt:
+    01. Verbinde den VCC Pin des Sensors mit dem 5V Pin des Arduino.
+    02. Verbinde den GND Pin des Sensors mit einem der GND Pins des Arduino.
+    03. Verbinde den TRIG Pin des Sensors mit dem digitalen Pin 7 des Arduino.
+    04. Verbinde den ECHO Pin des Sensors mit dem digitalen Pin 6 des Arduino.
+  - **LED**: Verbinde die LED mit dem Arduino:
 
+    01. Verbinde den Anodenpin (längerer Pin) der LED mit dem digitalen Pin 13 des Arduino.
+    02. Verbinde den Kathodenpin (kürzerer Pin) der LED mit einem der GND Pins des Arduino über einen 220 Ohm Widerstand.
+
+  - **Stepper Motor mit L293DNE Treiber:** Verbinde die Pins Ihres L293DNE Treibers und des Schrittmotors mit Ihrem Arduino wie folgt:
+    01. Verbinde die VCC1 (Pin 16) und VCC2 (Pin 8) Pins des L293DNE mit dem 5V Pin des Arduino.
+    02. Verbinde den GND Pin (Pins 4, 5, 12, 13 des L293DNE) mit einem der GND Pins des Arduino.
+    03. Verbinde die Input Pins (Pins 2, 7, 10 und 15) des L293DNE mit den digitalen Pins 8, 9, 10 und 11 des Arduino.
+    04. Verbinde die Output Pins (Pins 3, 6, 11 und 14) des L293DNE mit den Pins Ihres Schrittmotors. Je nachdem, wie Ihr spezifischer Schrittmotor gepinnt ist, können Sie die Reihenfolge der Verbindungen anpassen, um die Drehrichtung zu ändern.
+
+
+  - ![Phase06_Schaltplan](/assets/Phase06.PNG)
 
 
 
