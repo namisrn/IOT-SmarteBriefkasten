@@ -10,8 +10,32 @@ Obwohl viele von uns in Mehrfamilienhäusern leben oder unser Briefkasten weit v
 ## Lösungsansatz: 
 Um dieses Problem zu lösen, wurde ein System entwickelt, das aus einem Sensor- und einem Aktor-Modul besteht. Der Ultraschallsensor erkennt, wenn ein Objekt (z.B. ein Brief) in den Briefkasten geworfen wird, und sendet ein Signal an das Aktor-Modul. Das Aktor-Modul gibt dann eine visuelle und physische Reaktion: es leuchtet eine LED auf und der Servomotor/Stepper-Motor dreht sich. Diese Aktionen signalisieren dem Benutzer, dass Post eingeworfen wurde.
 
+## Ursprügliche Idee + Skizze:
+
+![Ursprügliche Idee](/assets/Idee.JPG)
+
+* Das Sensor-Modul (Sender): Dieses Modul hat die Aufgabe, das Vorhandensein neuer Briefe oder Pakete im Briefkasten zu erkennen und diese Information weiterzuleiten. Es besteht aus folgenden Bauteilen:
+  - Einem Arduino Nano RP2040 Connect als zentralem Steuerungsmodul,
+  - Thermochromatischer Folie,
+  - Einem LoRaWAN-Modul (LoRaWAN SX1278 LoRa 433MHz) zur drahtlosen Kommunikation,
+  - Einem HC-SR04 Ultraschallsensor zur Objekterkennung,
+  - Zwei hochpräzisen Wägezellen zur Gewichtsmessung,
+  - Einem Hitzesensor zur Erzeugung von Temperaturveränderungen.
+
+  Die Funktion des Sensor-Moduls ist es, eingeworfene Briefe oder Pakete sowohl durch den Ultraschallsensor als auch die Wägezellen zu erkennen. Die kombinierte Nutzung dieser beiden Sensoren reduziert die Wahrscheinlichkeit, dass eingeworfene Objekte nicht erkannt werden. Wenn ein Objekt erkannt wird, erhitzt der Hitzesensor die thermochromatische Folie, die eine Farbänderung auf der Vorderseite des Briefkastens bewirkt. Diese Farbänderung signalisiert dem Bewohner auf einen Blick, ob neue Post im Briefkasten ist oder nicht. Die Farbe könnte beispielsweise schwarz für einen leeren und rot für einen gefüllten Briefkasten sein. Darüber hinaus kann die Intensität der Farbe durch die Wägezellen beeinflusst werden - je schwerer das eingeworfene Paket ist, desto höher ist die vom Sensor erzeugte Temperatur, wodurch die Farbintensität verändert wird.
+
+* Das Aktor-Modul (Empfänger): Dieses Modul ist dafür verantwortlich, den Bewohner im Haus darüber zu informieren, wenn neue Post erkannt wurde. Es besteht aus:
+  - Einem Arduino Nano RP2040 Connect,
+  - Einem LoRaWAN-Modul (LoRaWAN SX1278 LoRa 433MHz),
+  - Einem Motortreiber H-Bridge L293DNE,
+  - Einem Schrittmotor.
+
+  Die Kommunikation zwischen den beiden Modulen erfolgt über die LoRaWAN-Module. Der Zustand des Moduls wird durch gerolltes Papier visualisiert. Die Bewegung des Schrittmotors zeigt das Vorhandensein neuer Post an. Wenn beispielsweise der Schrittmotor sich dreht, bedeutet dies, dass neuer Brief eingetroffen ist.
+
+
 ## Systemübersicht: 
-Das System bzw. die Gründsätzliche Idee besteht aus zwei Hauptkomponenten:
+
+Aufgrund von Zeitbeschränkungen musste das System vereinfacht und auf die folgenden Hauptmodule reduziert werden.
 
 * Einem Sensor-Modul (Sender): Dieses Modul ist dafür verantwortlich, das Vorhandensein eines neuen Briefes oder Pakets im Briefkasten zu erkennen. Es setzt sich aus folgenden Bauteilen zusammen:
   - Einem Arduino Nano RP2040 Connect,
