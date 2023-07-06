@@ -152,7 +152,7 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
     04. Verbinde die Output Pins (Pins 3, 6, 11 und 14) des L293DNE mit den Pins Ihres Schrittmotors. Je nachdem, wie Ihr spezifischer Schrittmotor gepinnt ist, können Sie die Reihenfolge der Verbindungen anpassen, um die Drehrichtung zu ändern.
 
 
-  - ![Phase06_Schaltplan](/assets/Phase06.PNG)
+  - ![Phase06_Schaltplan](/assets/Phase06.png)
 
 
 
