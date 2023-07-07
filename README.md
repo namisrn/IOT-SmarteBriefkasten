@@ -111,7 +111,7 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
     - [Video zu der Phase 06](https://youtu.be/44W68I5Qc0Q)
 
 ## Schaltpläne und Verdrahtung:
-###Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
+### Hier sind die Schaltpläne und Verdrahtung zu der Phase 04:
 
   ### Verdrahtungsanweisungen:
    - Arduino Nano RP2040 Connect (Sender):
@@ -132,7 +132,7 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
   - ![Phase04_Sender Schaltplan](/assets/Phase04_Sender.PNG)
   - ![Phase04_Empfänger Schaltplan](/assets/Phase04_Empfaenger.PNG)
 
-###Hier sind die Finale Schaltpläne und Verdrahtung (Phase 05 und 06):
+### Hier sind die Finale Schaltpläne und Verdrahtung (Phase 05 und 06):
 
 ### Verdrahtungsanweisungen:
   - **Ultraschallsensor HC-SR04**: verbinde die Pins Ihres HC-SR04 Ultraschallsensors mit Ihrem Arduino wie folgt:
