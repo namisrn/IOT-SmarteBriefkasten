@@ -1,5 +1,6 @@
 # MailMate 
-Ubiquitous Computing - Projektbericht. (Update: 06.07.2023)
+<sub> Ubiquitous Computing - Projektbericht - Sasan Rafat Nami - (Update: 07.07.2023) </sub>
+
 
 ## Einführung
 Das Ziel dieses Projektes besteht darin, ein intelligentes Briefkastenbenachrichtigungssystem zu entwickeln. Dieses System soll in der Lage sein, die Anwesenheit eines neuen Briefes oder Pakets im Briefkasten automatisch zu erkennen und den Benutzer entsprechend zu benachrichtigen. Aufgrund der Herausforderungen, die sich aus der regelmäßigen Überprüfung unseres Briefkastens ergeben, stellte die Entwicklung eines solchen intelligenten Benachrichtigungssystems eine interessante und relevante Aufgabe dar.
