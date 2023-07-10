@@ -39,7 +39,7 @@ void loop() {
   // Distanz berechnen
   float distance = (duration/2) / 29.1;
 
-  // Überprüfen, ob ein Objekt innerhalb von 10 cm ist
+  // Überprüfen, ob ein Objekt innerhalb von 11 cm ist
   if (distance < 11 && ledStatus == false) {
     digitalWrite(LED_PIN, HIGH);
     ledStatus = true;
