@@ -1,15 +1,21 @@
 # MailMate 
-<sub> Ubiquitous Computing - Projektbericht - Sasan Rafat Nami - (Update: 07.07.2023) </sub>
+<sub> Ubiquitous Computing - Projektbericht - Sasan Rafat Nami - (Update: 10.07.2023) </sub>
 
 
 ## Einführung
-Das Ziel dieses Projektes besteht darin, ein intelligentes Briefkastenbenachrichtigungssystem zu entwickeln. Dieses System soll in der Lage sein, die Anwesenheit eines neuen Briefes oder Pakets im Briefkasten automatisch zu erkennen und den Benutzer entsprechend zu benachrichtigen. Aufgrund der Herausforderungen, die sich aus der regelmäßigen Überprüfung unseres Briefkastens ergeben, stellte die Entwicklung eines solchen intelligenten Benachrichtigungssystems eine interessante und relevante Aufgabe dar.
+In unserer modernen, schnelllebigen Gesellschaft suchen wir stetig nach Wegen, um unseren Alltag effizienter und komfortabler zu gestalten. Ein Aspekt, der häufig Zeit und Mühe erfordert, besonders für diejenigen, die in Mehrfamilienhäusern leben oder deren Briefkasten weit von ihrem Wohnraum entfernt ist, ist das regelmäßige Überprüfen des Briefkastens. Wie oft sind wir zum Briefkasten gelaufen, nur um festzustellen, dass er leer ist? Wie schön wäre es, nur dann zum Briefkasten gehen zu müssen, wenn wir sicher wissen, dass dort Post für uns liegt?
 
-## Problemstellung: 
-Obwohl viele von uns in Mehrfamilienhäusern leben oder unser Briefkasten weit von unserem Wohnraum entfernt ist, bleibt das Überprüfen des Briefkastens auf Post eine lästige Aufgabe. Es wäre effizienter, eine Benachrichtigung zu erhalten, sobald die Post eingeworfen wird, damit wir nicht unnötig zum Briefkasten gehen müssen.
+## Problemstellung
+Das wiederholte, oft ergebnislose Überprüfen des Briefkastens ist eine lästige und zeitaufwendige Aufgabe. Eine effizientere Lösung wäre es, eine Benachrichtigung zu erhalten, sobald die Post eingeworfen wird, um unnötige Gänge zum Briefkasten zu vermeiden.
 
-## Lösungsansatz: 
-Um dieses Problem zu lösen, wurde ein System entwickelt, das aus einem Sensor- und einem Aktor-Modul besteht. Der Ultraschallsensor erkennt, wenn ein Objekt (z.B. ein Brief) in den Briefkasten geworfen wird, und sendet ein Signal an das Aktor-Modul. Das Aktor-Modul gibt dann eine visuelle und physische Reaktion: es leuchtet eine LED auf und der Servomotor/Stepper-Motor dreht sich. Diese Aktionen signalisieren dem Benutzer, dass Post eingeworfen wurde.
+## Lösungsansatz
+Zur Lösung dieses Problems schlage ich ein intelligentes Briefkastensystem vor. Dieses System besteht aus zwei Hauptmodulen: einem Sensor-Modul im Briefkasten und einem Aktor-Modul im Wohnraum des Benutzers.
+
+Das Sensor-Modul verwendet einen Ultraschallsensor, der erkennt, wenn ein Gegenstand (wie ein Brief) in den Briefkasten eingeworfen wird. Zusätzlich ist es mit einem LoRaWAN-Modul ausgestattet, das in der Lage ist, diese Information drahtlos an das Aktor-Modul zu übermitteln. Für eine visuelle Bestätigung leuchtet eine LED auf, wenn Post erkannt wird.
+
+Das Aktor-Modul empfängt das von dem Sensor-Modul gesendete Signal über sein eigenes LoRaWAN-Modul. Sobald eine Benachrichtigung über eingeworfene Post empfangen wird, aktiviert das Modul einen Schrittmotor und leuchtet eine LED auf. Diese Aktionen signalisieren dem Benutzer visuell und physisch, dass Post eingeworfen wurde.
+
+Durch den Einsatz moderner Technologien wie Ultraschallsensoren und LoRaWAN für drahtlose Kommunikation ermöglicht dieses System eine zuverlässige und effiziente Überwachung des Briefkastens. Es ist benutzerfreundlich, einfach zu installieren und bietet eine praktische Lösung für ein alltägliches Problem. Mit unserem intelligenten Briefkastensystem sparen Benutzer Zeit und Mühe, da sie nur dann zum Briefkasten gehen, wenn tatsächlich Post eingeworfen wurde.
 
 ## Ursprügliche Idee + Skizze:
 
@@ -156,6 +162,17 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
   - ![Phase06_Schaltplan](/assets/Phase06.png)
 
 
+## Vorschläge und verbesserungsmöglichkeit
+
+  ### Positionierung des Ultraschallsensors (USS)
+  Der Ultraschallsensor, der derzeit in der Mitte der Hinterseite des Briefkastens installiert ist, könnte möglicherweise eine verbesserte Leistung erbringen, wenn er etwas nach unten versetzt wird. Dies könnte dazu beitragen, die Erkennungsgenauigkeit des Sensors zu verbessern, da er einen breiteren Bereich abdeckt und besser in der Lage ist, Poststücke zu erfassen, die in den unteren Teil des Briefkastens eingeworfen werden.
+
+  ### Installation von Wägezellen
+  Eine zusätzliche Möglichkeit zur Verbesserung des Systems könnte die Installation von zwei Wägezellen unter dem Briefkasten sein. Diese würden eine physische Gewichtszunahme registrieren, wenn Post in den Briefkasten eingeworfen wird. Dies könnte eine wertvolle zweite Datenquelle bieten, um die Genauigkeit der Posterkennung zu erhöhen und potenzielle Fehlalarme zu minimieren, die durch die alleinige Nutzung des Ultraschallsensors entstehen könnten.
+
+  ### Implementierung von Sicherungen
+  Ein wichtiger Aspekt bei der Entwicklung von elektronischen Systemen ist die Sicherheit. Um Schäden an den Bauteilen zu verhindern, könnte es sinnvoll sein, für beide Platinen (Sensormodul und Aktormodul) eine kleine Sicherung zu implementieren. Sicherungen sind ein wirksames Mittel, um die Systeme vor Überspannungen zu schützen und somit ihre Lebensdauer und Zuverlässigkeit zu erhöhen. Das Hinzufügen von Sicherungen ist eine vorbeugende Maßnahme, die das Risiko von Komponentenschäden durch elektrische Probleme minimiert und gleichzeitig die Sicherheit und Langlebigkeit des gesamten Systems verbessert.
+
 
 ## Fazit
 
@@ -166,7 +183,6 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
   Obwohl das resultierende System reduziert wurde, habe ich dennoch ein grundsätzliches Verständnis für die wesentlichen Aspekte des Projekts gewonnen. Es hat mir eine solide Grundlage für zukünftige Verbesserungen und Erweiterungen geboten. Die wichtigste Erkenntnis aus diesem Projekt ist, dass der Lernprozess und die Fähigkeit, sich anzupassen und voranzukommen, trotz unerwarteter Schwierigkeiten, genauso wertvoll sind wie das endgültige Produkt selbst.
 
   Abschließend bin ich froh darauf, was ich erreicht habe und freue mich auf zukünftige IoT-Projekte, bei denen ich meine neu erworbenen Fähigkeiten und Kenntnisse anwenden und erweitern kann. Dieses Projekt war ein wichtiger Schritt auf meinem Weg, die vielschichtige und spannende Welt des Internet der Dinge besser zu verstehen und darin aktiv zu werden.
-
 
 ## Quelle:
 
