@@ -161,6 +161,12 @@ Das Kernproblem bestand darin, dass das System nicht konstant stabil funktionier
 
   - ![Phase06_Schaltplan](/assets/Phase06.png)
 
+## Bilder vom End-Produkt
+
+  - ![MailMate-Front](/assets/MailMaite-Front.jpg)
+  - ![MailMate-Back](/assets/MailMate-Back.jpg)
+  - ![MailMate-Inside(USS)](/assets/MailMate-Inside(USS).jpg)
+
 
 ## Vorschläge und verbesserungsmöglichkeit
 
